@@ -1,0 +1,19 @@
+body{
+  background-color:  #f0d4b9;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.app_div{
+  width: 80%;
+  margin: auto;
+  margin-top: 200px;
+  padding: 3em;
+  background-color: white;
+  border-radius: 30px;
+  padding-bottom: 250px;
+  position: relative;
+}
+.app_div .title{
+  text-align: center;
+  padding: 1em;
+}

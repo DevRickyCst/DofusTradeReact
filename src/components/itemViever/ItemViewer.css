@@ -1,0 +1,42 @@
+
+
+.form {
+    width: 80%;
+    text-align: center;
+}
+
+.logo_login{ 
+    height: 100px;
+    width: 100px;
+    margin: 0 1em;
+}
+
+.filter_form{
+    margin: auto;
+    padding: 3em 0;
+    border-radius: 30px;
+    text-align: center;
+    color: rgb(255, 255, 255)
+}
+
+.filter_form label, button{
+    margin-top: 1em;
+}
+
+.filter_form .navigation {
+    text-align: center;
+}
+
+.form_div {
+    background-color: rgb(184, 115, 51);
+    border-radius: 30px;
+    height: fit-content;
+}
+
+.item:hover {
+    background: aqua;
+}
+
+.table_div {
+    padding: 0 2em;
+}
