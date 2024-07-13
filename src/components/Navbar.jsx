@@ -36,7 +36,7 @@ export default function Navbar({currentPage, setCurrentPage}) {
             <a 
             className="navbar-brand home_link" 
             onClick={() => setCurrentPage('index')}
-            href="#">
+            href="/">
                 <img className="logo" src={logo}></img>
             </a>
 
@@ -46,7 +46,7 @@ export default function Navbar({currentPage, setCurrentPage}) {
               <a 
               className={`nav-link ${currentPage === 'encyclopedie' ? 'active' : ''}`} 
               onClick={() => setCurrentPage('encyclopedie')}
-              href='#'>
+              href='/encyclopedie'>
                 Encyclopédie</a>
             </li>
             <li >

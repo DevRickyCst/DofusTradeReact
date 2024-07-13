@@ -1,3 +1,9 @@
+@use 'assets/styles/main';
+@use 'assets/styles/_variables';
+
+
+@use 'src/components/characterViever/components/Character';
+
 body{
   background-color:  #f0d4b9;
   font-family: Helvetica, Arial, sans-serif;

@@ -1,0 +1,21 @@
+
+
+
+.div_filter_applied ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    border: solid 1px black;
+    padding: 0.5em 1em;
+    height: 3em;
+}
+
+.div_filter_applied li {
+    margin-right: 1em;
+    border: solid 1px black;
+    padding: 0.1em 0.4em;
+}
+
+.img_delete_item{
+    width: 1em
+}

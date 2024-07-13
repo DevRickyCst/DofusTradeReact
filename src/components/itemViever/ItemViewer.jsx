@@ -1,63 +1,93 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './ItemViewer.css';
+import './components/itemCard/ItemCard.css';
 import axiosInstance from '../../axiosConfig';
-import ItemFilter from './ItemFilter';
-import Item from './Item';
+import ItemFilter from './components/ItemFilter';
+import ItemApplied from './components/ItemApplied';
+import ItemCardBody from './components/itemCard/ItemCardBody';
+import ItemCardHeader from './components/itemCard/ItemCardHeader';
 
 
-
+const defaultFilters = {
+  item_name: '',
+  page_size: 20,
+  lvl_min: 1,
+  lvl_max: 200,
+  category: null,
+  is_weapon: null,
+  is_two_handed: null
+};
 
 export default function ItemViewer() {
-
-  const [itemSelected, setItemSelected] = useState(null)
   const [items, setItems] = useState([]);
-  const [filters, setFilters] = useState({
-    item_name: '',
-    page_size: 20,
-    lvl_min: 1,
-    lvl_max: 200
-  });
+  const [filters, setFilters] = useState(defaultFilters);
+  const [loading, setLoading] = useState(true);
 
+
+
+// Call back end endpoint to fetch items info
+const fetchData = async (filters) => {
+  setLoading(true);
+  console.log('Calling get item :items/getitems with filter ' + filters);
+  try {
+    const response = await axiosInstance.get('items/getitems', { params: filters });
+    setItems(response.data);
+  } catch (error) {
+    console.log(error);
+  } finally {
+    setLoading(false);
+  }
+};
+
+  // Fetch data if components gets created and when filters change
   useEffect(() => {
-    fetchData(filters); // Fetch data when the component mounts
-  }, [filters]); 
+    fetchData(filters); // Fetch data when filters change
+  }, [filters]);
 
-  const fetchData = async (filters) => {
-    console.log('Fetch data')
-    try {
-      const response = await axiosInstance.get('items/getitems', { params: filters });
-      setItems(response.data);
-    } catch (error) {
-      console.log(error)
-    }
+
+  const handleRecipe = (item) => {
+    let newItemName = item.name;
+    item.recipe.forEach((recipe) => {
+      newItemName += ` + ${recipe.item_name}`;
+    });
+    setFilters((prevFilters) => ({
+      ...defaultFilters,
+      item_name: newItemName,
+    }));
+  };
+
+  const cleanFilterKey = (key) => {
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [key]: defaultFilters[key],
+    }));  
   };
 
   return (
-    <div className="row justify-content-start divItemViewer">
-      <div className="table_div col-9">
-        <table className="table table-dark table-striped table-hover">
-          <thead>
-            <tr>
-              <th scope="col"></th>
-              <th scope="col">Name</th>
-              <th scope="col">Type</th>
-              <th scope="col">Level</th>
-            </tr>
-          </thead>
-          <tbody id="items-table-body">
+    <div className='row div_main_app'>
+      <h1>Liste des items:</h1>
 
-            {items.map((item, index) => (
-              
-              <tr key={item.ankama_id} className='item' onClick={() => setItemSelected(item.ankama_id)}>
-                  <Item item={item} isFulldisplay={itemSelected == item.ankama_id}/>
-              </tr>
+      <ItemApplied filters={filters} cleanFilterKey={cleanFilterKey} defaultFilters={defaultFilters}/>
+
+      <div className="col-9">
+      {loading ? (
+        <div className="d-flex justify-content-center">
+          <div className="spinner-border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        </div>
+        ) : (
+          <div id='accordion'>
+            {items.map((item) => (
+              <div className="card" key={item.ankama_id}>
+                <ItemCardHeader item={item} />
+                <ItemCardBody item={item} handleRecipe={handleRecipe} />
+              </div>
             ))}
-          </tbody>
-        </table>
+          </div>
+        )}
       </div>
-
-      <div className="form_div col-3">
-            <ItemFilter  changeFilters={setFilters} initialFilters={filters} />
+      <div className="div_right col-3">
+        <ItemFilter changeFilters={setFilters} initialFilters={filters} />
       </div>
     </div>
   );

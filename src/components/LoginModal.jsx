@@ -15,17 +15,21 @@ export default function LoginModal() {
             });
 
             const { access, refresh } = response.data;
-            console.log(response.data)
+
             localStorage.setItem('access_token', access);
             localStorage.setItem('refresh_token', refresh);
+
             setError(false);
+
             // Fermer la modal après la connexion réussie
             const modal = document.getElementById('loginModal');
-            const modalInstance = bootstrap.Modal.getInstance(modal);
+            const modalInstance = new bootstrap.Modal(modal);
+
             modalInstance.hide();
             // Optionnel : rafraîchir la page ou rediriger l'utilisateur
             window.location.reload();
         } catch (err) {
+            console.log(err)
             setError(true);
         }
     };

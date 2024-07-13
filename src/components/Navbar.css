@@ -49,7 +49,6 @@
   .nav-link {
     font-size: 24px;
     color: #F7F6CF;
-    @include clickable;
   }
   
   .connection_link {
@@ -63,7 +62,6 @@
   .title-navbar-expand {
     display: block;
     width: 75%;
-    @include main-title-outline;
   
   }
   
@@ -107,9 +105,5 @@
     border: none;
     border-radius: 45px;
     transition: background 0.7s, opacity 1s;
-  
-    &:focus{
-        box-shadow: none;
-        background: rgba(255,255,255,0.6);
-    }
+
   }
