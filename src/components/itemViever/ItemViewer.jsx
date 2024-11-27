@@ -63,31 +63,42 @@ const fetchData = async (filters) => {
   };
 
   return (
-    <div className='row div_main_app'>
-      <h1>Liste des items:</h1>
+    <div className='row'>
+      <h1>Encyclopédie</h1>
 
-      <ItemApplied filters={filters} cleanFilterKey={cleanFilterKey} defaultFilters={defaultFilters}/>
+      <div className='col-9'>
 
-      <div className="col-9">
-      {loading ? (
-        <div className="d-flex justify-content-center">
-          <div className="spinner-border" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </div>
-        </div>
-        ) : (
-          <div id='accordion'>
-            {items.map((item) => (
-              <div className="card" key={item.ankama_id}>
-                <ItemCardHeader item={item} />
-                <ItemCardBody item={item} handleRecipe={handleRecipe} />
+
+          <div className='widget'>
+          <ItemApplied filters={filters} cleanFilterKey={cleanFilterKey} defaultFilters={defaultFilters}/>
+          {loading ? (
+            <div className="d-flex justify-content-center">
+              <div className="spinner-border" role="status">
+                <span className="visually-hidden">Loading...</span>
               </div>
-            ))}
+            </div>
+            ) : (
+              <div id='accordion'>
+                {items.map((item) => (
+                  <div className="card" key={item.ankama_id}>
+                    <ItemCardHeader item={item} />
+                    <ItemCardBody item={item} handleRecipe={handleRecipe} />
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
-        )}
+
+
       </div>
-      <div className="div_right col-3">
-        <ItemFilter changeFilters={setFilters} initialFilters={filters} />
+      <div className="col-3">
+
+
+          <div className='widget'>
+            <ItemFilter changeFilters={setFilters} initialFilters={filters} />
+          </div>
+      
+      
       </div>
     </div>
   );

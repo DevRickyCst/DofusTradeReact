@@ -1,0 +1,23 @@
+$font-primary: 'Roboto', sans-serif; // Police principale
+
+
+@mixin title-style($font-size, $line-height, $color, $weight: 600) {
+    font-size: $font-size;
+    line-height: $line-height;
+    color: $color;
+    font-weight: $weight;
+    font-family: $font-primary;
+  }
+  
+  @mixin responsive-font-size($property, $value-sm, $value-md, $value-lg) {
+    #{$property}: $value-sm;
+  
+    @media (min-width: $breakpoint-md) {
+      #{$property}: $value-md;
+    }
+  
+    @media (min-width: $breakpoint-lg) {
+      #{$property}: $value-lg;
+    }
+  }
+  

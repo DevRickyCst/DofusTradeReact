@@ -1,0 +1,31 @@
+@use '../utils/_variables';
+
+.div-navbar {
+    height: 100%;
+    width : 100%;
+    z-index: -1;
+    box-shadow: -1px 0px 2px black;
+    background-color: variables.$primary-dark;
+    .navbar{
+        padding: 0% 5%;
+
+        .logo{
+            width: auto;
+            height: 100px;
+          }
+    
+        li{
+            margin: 0% 4%;
+            a {
+                font-size: 24px;
+                color: variables.$secondary-light;
+                text-decoration: none;
+              }
+            
+            a:hover{
+              color: variables.$secondary-dark;
+            }
+          }
+      }
+  }
+

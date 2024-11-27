@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import '../../../assets/styles/pages/_personnages.scss'
 
 
 export default function CharacterInfo({ characterInfoBase, rawCharacteristiqueBase, parchoCharacteristiqueBase}) {
@@ -30,54 +30,60 @@ export default function CharacterInfo({ characterInfoBase, rawCharacteristiqueBa
     }));
   };
   return (
-    <div className='divCharacterFullInfo'>
+    <div className='divCharacterFullInfo '>
+    <div className='widget row mb-4'>
+      <div className='col-6 '>
       <img className="img-other-charac" src={characterInfo.classeUrl} alt="Character Class Logo" />
+      </div>
+      <div className='col-6 info'>
       <h3>{characterInfo.name}</h3>
       <p>Level: {characterInfo.lvl}</p>
-      <div>
-        {characteristiqueType.map((type) => (
-          <div key={type} className="col-md-6 mb-3">
-            <h5>{type}</h5>
-            <div className="row">
-              <div className="col-4">
-                <label>Base:</label>
-                <input 
-                  type="number" 
-                  name={type} 
-                  min="0" 
-                  max="1000" 
-                  value={rawCharacteristique[type] || 0} 
-                  onChange={(e) => handleRawChange(e, type)}
-                  className="form-control" 
-                />
-              </div>
-              <div className="col-4">
-                <label>Parcho:</label>
-                <input 
-                  type="number" 
-                  name={`${type}_parcho`} 
-                  min="0" 
-                  max="100" 
-                  value={parchoCharacteristique[type] || 0} 
-                  onChange={(e) => handleParchoChange(e, type)} 
-                  className="form-control" 
-                />
-              </div>
-              <div className="col-4">
-                <label>Stuff:</label>
-                <input 
-                  type="number" 
-                  name={`${type}_stuff`} 
-                  min="0" 
-                  max="1000" 
-                  readOnly 
-                  className="form-control" 
-                />
-              </div>
-            </div>
-          </div>
-        ))}
       </div>
+    </div>
+
+
+  <div className="table-responsive div-charac widget">
+    <h3>Point de charac</h3>
+  <table className="charac-tab table custom-table">
+
+  <tbody>
+    {characteristiqueType.map((type) => (
+      <tr key={type}>
+        <td>
+          <img
+            className="img-charac"
+            src={`/src/assets/logo/logo_charac/${type}.png`}
+            alt="Character"
+          />
+        </td>
+        <td>
+          <input
+            type="number"
+            name={type}
+            min="0"
+            max="1000"
+            value={rawCharacteristique[type] || 0}
+            onChange={(e) => handleRawChange(e, type)}
+            className="form-control"
+          />
+        </td>
+        <td>
+          <input
+            type="number"
+            name={`${type}_parcho`}
+            min="0"
+            max="100"
+            value={parchoCharacteristique[type] || 0}
+            onChange={(e) => handleParchoChange(e, type)}
+            className="form-control"
+          />
+        </td>
+
+      </tr>
+    ))}
+  </tbody>
+</table>
+</div>
     </div>
   );
 }

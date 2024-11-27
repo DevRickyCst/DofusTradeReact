@@ -1,0 +1,91 @@
+@use '../utils/_variables';
+
+.leftNavBar {
+    height: 70%;
+    width: 7%;
+    background-color: variables.$background-color;
+    position: fixed;
+    border-radius: 15px;
+    left: 1.5%;
+    padding: 1em;
+    top: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
+    .scroll-container {
+      flex-grow: 1;
+      overflow-y: auto;
+      max-height: calc(100% - 4rem); // Espace pour les boutons
+      padding-right: 0.5em; // Un petit espace pour éviter que le contenu touche le bord
+    }
+  
+    .character-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 1rem;
+  
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+  
+      p {
+        text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  
+    .scroll-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 1rem;
+  
+      .scroll-button {
+        background: black;
+        color: grey;
+        border: none;
+        padding: 0.5rem;
+        margin: 0.2rem 0;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+  
+        &:hover {
+          background: darken(grey, 10%);
+        }
+  
+        &:disabled {
+          background: lighten(grey, 10%);
+          cursor: not-allowed;
+        }
+      }
+    }
+  
+    #add-character-btn {
+      margin-top: 1rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      img {
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+  }
+
+  .scroll-container {
+    max-height: 100%; /* Limite la hauteur si nécessaire */
+    overflow-y: scroll; /* Active le défilement vertical */
+    scrollbar-width: none; /* Pour Firefox */
+    -ms-overflow-style: none; /* Pour Internet Explorer */
+  
+    &::-webkit-scrollbar {
+      display: none; /* Masque la barre de défilement pour Chrome, Edge et Safari */
+    }
+  }
+  

@@ -1,0 +1,22 @@
+.divCharacterFullInfo{
+
+    .img-other-charac{
+        padding: auto;
+        width: 100%;
+    };
+
+};
+
+.stuff {
+    img{
+        width: 100px;
+    }
+}
+  /* Ajuster les images dans les colonnes */
+  .charac-tab img {
+    max-width: 50px; /* Limite la largeur des images */
+    max-height: 45px; /* Limite la largeur des images */
+    height: auto; /* Respecte les proportions */
+    display: block;
+    margin: 0 auto;
+  }

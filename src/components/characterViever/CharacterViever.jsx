@@ -22,7 +22,9 @@ export default function CharacterViever() {
             });
             setRawCharacteristique(data.raw_characteristique || {});
             setParchoCharacteristique(data.parcho_characteristique || {});
-            setStuff(data.stuff)
+            setStuff(data.stuff || {})
+            console.log('data after the call')
+            console.log(data.stuff)
         } catch (error) {
             console.error('Error fetching character info:', error);
         }
@@ -31,18 +33,19 @@ export default function CharacterViever() {
   }, [params.id]);
 
   return (
-    <div className='row div_main_app'>
+    <div className='row '>
+        <h1>Personnages</h1>
 
-        <div className="col-4 divCharacterFullInfo">
+        <div className="col-3 divCharacterFullInfo">
           <CharacterInfo 
             characterInfoBase={characterInfo} 
             rawCharacteristiqueBase={rawCharacteristique} 
             parchoCharacteristiqueBase={parchoCharacteristique} 
           />
         </div>        
-        <div className="col-8">
+        <div className="col-9 stuff">
             <CharacterStuff 
-            stuff={stuff}/>
+            stuffInit={stuff}/>
         </div>
     </div>
   )

@@ -23,7 +23,9 @@ export default function App() {
   
   return (
     <>
-      <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage}/>
+      <div className="div-navbar">
+        <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage}/>
+      </div>
       {isAuthenticated && <CharacterNavBar />}
 
       <div className= "app_div">

@@ -1,0 +1,89 @@
+// --- Tailles de police ---
+$font-size-xs: 0.75em;  // Taille très petite (par rapport au parent)
+$font-size-sm: 0.875em; // Taille petite (par rapport au parent)
+$font-size-md: 1em;     // Taille de base (égale au parent)
+$font-size-lg: 1.25em;  // Taille légèrement plus grande
+$font-size-xl: 1.5em;   // Taille large
+$font-size-xxl: 2em;    // Taille très large
+
+$font-size-h1: 2.5rem;
+$font-size-h2: 2rem;
+$font-size-h3: 1.75rem;
+$font-size-h4: 1.5rem;
+$font-size-h5: 1.25rem;
+$font-size-h6: 1rem;
+
+
+// Variables de typographie
+$font-primary: 'Roboto', sans-serif;
+$font-secondary: 'Open Sans', sans-serif;
+
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// --- Espacements (marges et paddings) ---
+$spacing-xs: 0.25em;  // Très petit espace
+$spacing-sm: 0.5em;   // Petit espace
+$spacing-md: 1em;     // Espace de base
+$spacing-lg: 1.5em;   // Espace moyen
+$spacing-xl: 2em;     // Grand espace
+$spacing-xxl: 3em;    // Très grand espace
+
+// --- Bordures ---
+$border-width-thin: 0.0625em;  // 1px si la taille de base est 16px
+$border-width-medium: 0.125em; // 2px
+$border-width-thick: 0.25em;   // 4px
+
+// Styles des bordures
+$border-style-solid: solid;
+$border-style-dashed: dashed;
+$border-style-dotted: dotted;
+
+// Couleurs de bordures
+$border-color-light: #e0e0e0; // Gris clair
+$border-color-dark: #333333;  // Gris foncé
+
+// --- Hauteurs de ligne ---
+$line-height-tight: 1.2; // Texte compact
+$line-height-normal: 1.5; // Ligne standard
+$line-height-loose: 1.8; // Ligne aérée
+
+// Couleurs principales (Branding)
+$primary-color: #37a363;      // Vert émeraude, lié à la nature et la magie
+$primary-light: #5fc982;      // Vert clair, utilisé pour des accents
+$primary-dark: #2c854c;       // Vert foncé, pour les éléments solides ou ombrés
+
+$secondary-color: #e8b331;    // Doré, rappelle les trésors et le côté chaleureux
+$secondary-light: #f3d479;    // Doré clair
+$secondary-dark: #b38622;     // Doré foncé
+
+// États (Success, Warning, Error, Info)
+$success-color: #28a745;      // Vert classique pour succès
+$warning-color: #f3b622;      // Orange doré pour avertissements
+$error-color: #c12a2a;        // Rouge intense pour les erreurs
+$info-color: #2784a5;         // Bleu profond pour les informations ou l'eau
+
+// Couleurs neutres (Texte, Backgrounds, Borders)
+$text-color: #2b2924;         // Brun foncé, évoque les parchemins ou le bois
+$text-muted: #7e7b74;         // Gris chaud, pour les éléments moins importants
+$background-color: #f4e9dc;   // Beige clair, pour un fond chaleureux
+$border-color: #d9c4a0;       // Beige foncé pour les bordures décoratives
+
+// Variantes de couleurs (Shades)
+$gray-100: #f4f4f4;           // Très clair, pour les zones neutres
+$gray-200: #dedcd6;           // Gris pierre, légèrement texturé
+$gray-300: #c9c2c2;           // Gris intermédiaire
+$gray-400: #a09898;           // Gris foncé
+$gray-500: #5e5555;           // Gris profond, pour le contraste
+
+// Couleurs spécifiques Dofus
+$element-earth: #9a7c38;      // Couleur marron pour l'élément terre
+$element-fire: #d44d2d;       // Rouge feu pour l'élément feu
+$element-water: #3c78a3;      // Bleu pour l'élément eau
+$element-air: #93c1d4;        // Bleu clair pour l'élément air
+
+
+// --- Exemples combinés ---
+$button-padding: $spacing-sm $spacing-md; // Padding vertical et horizontal

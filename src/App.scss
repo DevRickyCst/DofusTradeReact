@@ -1,25 +1,22 @@
 @use 'assets/styles/main';
-@use 'assets/styles/_variables';
 
 
-@use 'src/components/characterViever/components/Character';
+@use 'src/assets/styles/utils/_variables';
+
+
 
 body{
-  background-color:  #f0d4b9;
   font-family: Helvetica, Arial, sans-serif;
 }
 
 .app_div{
   width: 80%;
+  background-color: variables.$gray-100;
+  border: variables.$border-width-thick variables.$border-style-dotted variables.$border-color-light;
   margin: auto;
-  margin-top: 200px;
-  padding: 3em;
-  background-color: white;
+  margin-top: 4.5em;
+  padding: 2em 3em;
   border-radius: 30px;
   padding-bottom: 250px;
   position: relative;
-}
-.app_div .title{
-  text-align: center;
-  padding: 1em;
 }

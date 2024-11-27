@@ -5,7 +5,7 @@ import logout from '/src/assets/logo/logout.svg'
 import login from '/src/assets/logo/profile.svg'
 import logo from '/src/assets/logo/logo.png'
 
-import './Navbar.css'
+import '../assets/styles/layout/_navbar.scss'
 
 export default function Navbar({currentPage, setCurrentPage}) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -28,9 +28,9 @@ export default function Navbar({currentPage, setCurrentPage}) {
   };
 
   return (    
-    <div className="navbar-background">
+    <>
 
-      <nav className="navbar navbar-expand-lg sticky-top" >
+      <nav className="navbar navbar-expand-lg" >
 
        <div className="container-fluid">
             <a 
@@ -44,36 +44,32 @@ export default function Navbar({currentPage, setCurrentPage}) {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li >
               <a 
-              className={`nav-link ${currentPage === 'encyclopedie' ? 'active' : ''}`} 
+              className={`${currentPage === 'encyclopedie' ? 'active' : ''}`} 
               onClick={() => setCurrentPage('encyclopedie')}
               href='/encyclopedie'>
                 Encyclopédie</a>
             </li>
             <li >
               <a 
-              className={`nav-link ${currentPage === 'panoplie' ? 'active' : ''}`} 
+              className={`${currentPage === 'panoplie' ? 'active' : ''}`} 
               onClick={() => setCurrentPage('panoplie')}
               href='#'>
                 Panoplie</a>
             </li>
             <li>
               <a 
-              className={`nav-link ${currentPage === 'monture' ? 'active' : ''}`} 
+              className={`${currentPage === 'monture' ? 'active' : ''}`} 
               onClick={() => setCurrentPage('monture')}
               href='#'>
                 Monture</a>
             </li>
             <li>
               <a 
-              className={`nav-link ${currentPage === 'almanax' ? 'active' : ''}`} 
+              className={`${currentPage === 'almanax' ? 'active' : ''}`} 
               onClick={() => setCurrentPage('almanax')}
               href='#'>
                 Almanax</a>
             </li>
-          </ul>
-
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <input type="navbar-search" className="form-control navbar-search-retracted" id="exampleInputEmail1" placeholder="Search for anything (Item, Pano, Almanax ...) "></input>
           </ul>
 
           <ul className="navbar-nav mb-lg-0">
@@ -103,7 +99,7 @@ export default function Navbar({currentPage, setCurrentPage}) {
           </div>
         </div>
       </nav>
-      </div>
+      </>
   )
 }
 
